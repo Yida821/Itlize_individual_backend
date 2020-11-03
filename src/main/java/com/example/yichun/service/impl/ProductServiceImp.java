@@ -19,24 +19,37 @@ public class ProductServiceImp implements ProductService {
         return productRepository.findProductById(id);
     }
 
-//    @Override
-//    public List<Product> findAllProducts() {
-//        return productRepository.findAllProducts();
-//    }
+    @Override
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
 
     @Override
     public void deleteProductById(int id) {
         productRepository.deleteProductById(id);
     }
 
+    @Override
+    public List<Product> findProductByCategoryName(String categoryName) {
+        return productRepository.findProductByCategoryName(categoryName);
+    }
+
+    @Override
+    public List<Product> findProductBySubCategoryName(String subCategoryName) {
+        return productRepository.findProductBySubCategoryName(subCategoryName);
+    }
+
+    @Override
+    public List<Product> findProductByCategoryNameAndSubCategoryName (String categoryName, String subCategoryName) {
+        return productRepository.findProductByCategoryNameAndSubCategoryName(categoryName,subCategoryName);
+    }
+
 //    @Override
-//    public Product saveProduct(Product product) {
-//        return productRepository.saveProduct(product);
+//    public List<String> findDistinctByCategoryName() {
+//        return productRepository.findDistinctByCategoryName();
 //    }
-//
-//    @Override
-//    public  Product updateProduct(Product product) {
-//        return productRepository.updateProduct(product);
-//    }
+
+
+
 
 }

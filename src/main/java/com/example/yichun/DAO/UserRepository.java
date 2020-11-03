@@ -6,8 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
     User findUserByUserName(String userName);
     User findUserById(int id);
 
@@ -21,6 +23,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     boolean existsByEmail(String email);
 
-    void delet
+    List<User> findAll();
+
+    void deleteAll();
 
 }

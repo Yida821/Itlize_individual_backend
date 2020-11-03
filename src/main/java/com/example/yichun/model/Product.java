@@ -14,53 +14,81 @@ public class Product {
     @Column
     private String brand;
 
-    @OneToOne (
-            fetch = FetchType.LAZY,
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH}
-    )
-    private TechnicalSpercification technicalSpecification;
+    //Subcate
+    @Column
+    private String subCategoryName;
+    //Subcate
 
-    @OneToOne (
-            fetch = FetchType.LAZY,
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH}
-    )
-    private  Type type;
 
-    @OneToOne (
-            fetch = FetchType.LAZY,
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH}
-    )
-    private  Description description;
+    //category
+    @Column
+    private String categoryName;
+    //category
 
-    @OneToOne (
-            fetch = FetchType.LAZY,
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH}
-    )
-    private  SubCategory subCategory;
+    //Technical specification
+    @Column
+    private int airFlow;
 
-    @OneToOne (
-            fetch = FetchType.LAZY,
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH}
-    )
-    private  Category category;
+    @Column
+    private int power;
+
+    @Column
+    private int operatingVoltage;
+
+    @Column
+    private int fanSpeed;
+    //Technical specification
+
+    //type
+    @Column
+    private String userType;
+
+    @Column
+    private String application;
+
+    @Column
+    private String mountingLocation;
+
+    @Column
+    private String accessories;
+
+    @Column
+    private String modelYear;
+    //type
+
+    //description
+    @Column
+    private String manufacturer;
+
+    @Column
+    private String series;
+
+    @Column
+    private String model;
+
+    //description
 
     public Product() {
     }
 
-    public Product(int id, String productName, String brand, TechnicalSpercification technicalSpecification, Type type, Description description, SubCategory subCategory, Category category) {
+    public Product(int id, String productName, String brand, String subCategoryName, String categoryName, int airFlow, int power, int operatingVoltage, int fanSpeed, String userType, String application, String mountingLocation, String accessories, String modelYear, String manufacturer, String series, String model) {
         this.id = id;
         this.productName = productName;
         this.brand = brand;
-        this.technicalSpecification = technicalSpecification;
-        this.type = type;
-        this.description = description;
-        this.subCategory = subCategory;
-        this.category = category;
+        this.subCategoryName = subCategoryName;
+        this.categoryName = categoryName;
+        this.airFlow = airFlow;
+        this.power = power;
+        this.operatingVoltage = operatingVoltage;
+        this.fanSpeed = fanSpeed;
+        this.userType = userType;
+        this.application = application;
+        this.mountingLocation = mountingLocation;
+        this.accessories = accessories;
+        this.modelYear = modelYear;
+        this.manufacturer = manufacturer;
+        this.series = series;
+        this.model = model;
     }
 
     public int getId() {
@@ -69,6 +97,7 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+
     }
 
     public String getProductName() {
@@ -87,43 +116,115 @@ public class Product {
         this.brand = brand;
     }
 
-    public TechnicalSpercification getTechnicalSpecification() {
-        return technicalSpecification;
+    public String getSubCategoryName() {
+        return subCategoryName;
     }
 
-    public void setTechnicalSpecification(TechnicalSpercification technicalSpecification) {
-        this.technicalSpecification = technicalSpecification;
+    public void setSubCategoryName(String subCategoryName) {
+        this.subCategoryName = subCategoryName;
     }
 
-    public Type getType() {
-        return type;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public Description getDescription() {
-        return description;
+    public int getAirFlow() {
+        return airFlow;
     }
 
-    public void setDescription(Description description) {
-        this.description = description;
+    public void setAirFlow(int airFlow) {
+        this.airFlow = airFlow;
     }
 
-    public SubCategory getSubCategory() {
-        return subCategory;
+    public int getPower() {
+        return power;
     }
 
-    public void setSubCategory(SubCategory subCategory) {
-        this.subCategory = subCategory;
+    public void setPower(int power) {
+        this.power = power;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getOperatingVoltage() {
+        return operatingVoltage;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setOperatingVoltage(int operatingVoltage) {
+        this.operatingVoltage = operatingVoltage;
+    }
+
+    public int getFanSpeed() {
+        return fanSpeed;
+    }
+
+    public void setFanSpeed(int fanSpeed) {
+        this.fanSpeed = fanSpeed;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getApplication() {
+        return application;
+    }
+
+    public void setApplication(String application) {
+        this.application = application;
+    }
+
+    public String getMountingLocation() {
+        return mountingLocation;
+    }
+
+    public void setMountingLocation(String mountingLocation) {
+        this.mountingLocation = mountingLocation;
+    }
+
+    public String getAccessories() {
+        return accessories;
+    }
+
+    public void setAccessories(String accessories) {
+        this.accessories = accessories;
+    }
+
+    public String getModelYear() {
+        return modelYear;
+    }
+
+    public void setModelYear(String modelYear) {
+        this.modelYear = modelYear;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getSeries() {
+        return series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }
